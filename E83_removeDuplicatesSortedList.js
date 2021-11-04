@@ -13,7 +13,7 @@ var deleteDuplicates = function(head) {
   let node = head;
   while (head && head.next) {
     while (head.next && head.next.val === head.val) {
-      head.next = head.next.next || null;
+      head.next = head.next.next;
     }
     head = head.next;
   }
