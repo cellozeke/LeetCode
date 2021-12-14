@@ -3,10 +3,13 @@
  * @return {number}
  */
 var hammingWeight = function(n) {
-  let str = n.toString();
   let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === '1') count++;
+  for (let i = Math.floor(Math.log2(n)); i >= 0 && n > 0; i--) {
+    let exp = 2 ** i;
+    if (n - exp >= 0) {
+      count++;
+      n -= exp;
+    }
   }
   return count;
 };
